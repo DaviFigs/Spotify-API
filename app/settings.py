@@ -14,15 +14,15 @@ main_string_base64 = main_string_base64_bytes.decode('ascii')
 STRING_FOR_TOKEN = main_string_base64
 REQUEST_URL = 'https://accounts.spotify.com/api/token'
 
-def get_token():#have to  take the access token 
-    headers = {
-        'Authorization': 'Basic' + STRING_FOR_TOKEN,
-        'Content-Type':'application/x-www-form-urlenconded'
+
+def get_token():
+    header = {
+        'Authorization':f'Basic {main_string_base64}',
+        'Content-type':'application/x-www-form-urlencoded'
     }
-    payload = {'grant_type':'client_credentials'}
-    response = requests.request('POST',url = REQUEST_URL, headers = headers, data = payload)
-
-    access_token = response.json()['access_token']
-    return access_token
-
+    body = {
+        'grant_type':'client_credentials'
+    }
+    response = requests.request('post', url=REQUEST_URL, headers= header, data = body)
+    return response
 
