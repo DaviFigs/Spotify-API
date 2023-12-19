@@ -8,7 +8,7 @@ main_string = CLIENT_ID +':'+ CLIENT_SECRET
 
 #making string connection
 main_string_bytes = main_string.encode('ascii')
-main_string_base64_bytes = base64.b64decode(main_string_bytes)
+main_string_base64_bytes = base64.b64encode(main_string_bytes)
 main_string_base64 = main_string_base64_bytes.decode('ascii')
 
 STRING_FOR_TOKEN = main_string_base64
@@ -19,8 +19,8 @@ def get_token():#have to  take the access token
         'Authorization': 'Basic' + STRING_FOR_TOKEN,
         'Content-Type':'application/x-www-form-urlenconded'
     }
-    data = {'grant_type':'client_credetials'}
-    response = requests.request('POST',url = REQUEST_URL, headers = headers, data = data)
+    payload = {'grant_type':'client_credentials'}
+    response = requests.request('POST',url = REQUEST_URL, headers = headers, data = payload)
 
     access_token = response.json()['access_token']
     return access_token
