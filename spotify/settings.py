@@ -1,9 +1,12 @@
 import base64
 import requests
+import os 
+from dotenv import load_dotenv
 
-CLIENT_ID = 'f0cd9a2febaf4bd792d39b86430a442d'
-CLIENT_SECRET = '8b428da3e1354ad9b18c14caa5e7fea5'
-main_string = CLIENT_ID +':'+ CLIENT_SECRET
+load_dotenv()
+
+
+main_string = os.getenv('CLIENT_ID') +':'+ os.getenv('CLIENT_SECRET')
 
 
 #making string connection
