@@ -1,12 +1,17 @@
-from settings import get_token
+from settings import get_token, get_user_token
 import requests
 
-url = 'https://api.spotify.com/v1/tracks/3T8Ht5f3xUejqEctN3RGb6'
+url_user = 'https://api.spotify.com/v1/me'
 
-token = get_token().json()['access_token']
-headers = {'Authorization':f'Bearer {token}'}
+#token = get_token().json()['access_token']
+headers = {'Authorization':'Bearer '+ get_token().json()['access_token']}
 
-response = requests.request('GET', url = url, headers=headers)
-response.status_code
+response_user = requests.request('GET', url = url_user, headers=headers)
 
+response_user.status_code
+
+print(response_user.json())
+
+
+response = get_user_token()
 print(response.json())

@@ -17,7 +17,7 @@ main_string_base64 = main_string_base64_bytes.decode('ascii')
 STRING_FOR_TOKEN = main_string_base64
 REQUEST_URL = 'https://accounts.spotify.com/api/token'
 
-
+#we cannot use this token to access the user data
 def get_token():
     header = {
         'Authorization':f'Basic {main_string_base64}',
@@ -28,4 +28,20 @@ def get_token():
     }
     response = requests.request('post', url=REQUEST_URL, headers= header, data = body)
     return response
+
+
+def get_user_token():
+    header ={
+        'Authorization':f'Basic {main_string_base64}',
+        'Content-type':'application/x-www-form-urlencoded'
+    } 
+    form={
+        'code': get_token().json()['access_token'],
+        'redirect_uri': os.getenv('CALLBACK_URL'),
+        'grant_type' :'authorization_code'
+    }
+    response = requests.request('POST', url=REQUEST_URL, headers= header, data = form)
+    return response
+
+
 

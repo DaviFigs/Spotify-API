@@ -4,6 +4,7 @@ from .settings import main_string
 
 load_dotenv()
 
+
 def authorize(): #this function will authorize our app to take informations about the logged user
     auth_url = os.getenv('AUTHORIZE_URL')\
         +'?client_id='+os.getenv('CLIENT_ID')\
