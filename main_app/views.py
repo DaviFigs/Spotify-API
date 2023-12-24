@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-def callback(request):
+def callback(request):#create session params and return him to main_page
     try:
         if request.session['auth'] == True:
             return redirect('main_page')
@@ -19,7 +19,6 @@ def callback(request):
     except KeyError:
         return redirect('login')
     
-
 
 def main_page(request):
     try:
