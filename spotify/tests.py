@@ -1,5 +1,6 @@
-from settings import get_token, get_user_token
+from settings import get_token, get_user_information
 import requests
+from authorizate import authorize
 
 url_user = 'https://api.spotify.com/v1/me'
 
@@ -13,5 +14,8 @@ response_user.status_code
 print(response_user.json())
 
 
-response = get_user_token()
+response = get_user_information()
 print(response.json())
+
+print(authorize())
+

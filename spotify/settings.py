@@ -30,13 +30,13 @@ def get_token():
     return response
 
 
-def get_user_token():
+def get_user_information(code):
     header ={
         'Authorization':f'Basic {main_string_base64}',
         'Content-type':'application/x-www-form-urlencoded'
     } 
     form={
-        'code': get_token().json()['access_token'],
+        'code':code,
         'redirect_uri': os.getenv('CALLBACK_URL'),
         'grant_type' :'authorization_code'
     }
