@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from spotify import settings as sett
 import requests
 import os
@@ -6,17 +6,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def callback(request):
-    code = request.GET.get('code')
-    response = sett.callbacks(code=code)
-    print(response)
-    access_token = response['access_token']
+    response = sett.callbacks(code=request.GET.get('code'))
+    request.session['auth'] = True
+    request.session['access_token'] = response['access_token']
+    return redirect('main_page')
 
-    headers = {
-        'Authorization':'Bearer '+access_token
-    }
-    response1 = requests.get(os.getenv('BASE_URL')+'me', headers=headers)
-    print(response1.json())
-
-    
-    return render(request, 'callback.html')
-
+def main_page(request):
+    try:
+        if request.session['auth'] == True:
+            access_token = request.session['access_token']
+            headers = {
+                'Authorization':'Bearer '+access_token
+            }
+            response = requests.get(os.getenv('BASE_URL')+'me', headers=headers)
+            print(response.json())
+            return render(request, 'callback.html')
+        else:
+            return redirect('login')    
+    except:
+        return redirect('login')
