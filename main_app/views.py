@@ -11,13 +11,16 @@ def callback(request):
             return redirect('main_page')
         else:
             response = sett.callbacks(code=request.GET.get('code'))
+
+            request.session.set_expiry(3600)
             request.session['auth'] = True
             request.session['access_token'] = response['access_token']
             return redirect('main_page')
-    except:
+    except KeyError:
         return redirect('login')
     
-    
+
+
 def main_page(request):
     try:
         if request.session['auth'] == True:
@@ -26,9 +29,8 @@ def main_page(request):
                 'Authorization':'Bearer '+access_token
             }
             response = requests.get(os.getenv('BASE_URL')+'me', headers=headers)
-            print(response.json())
-            return render(request, 'callback.html')
+            return render(request, 'main.html')
         else:
-            return redirect('login')    
-    except:
+            return redirect('login')
+    except KeyError:
         return redirect('login')

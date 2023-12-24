@@ -13,7 +13,7 @@ def callbacks(code):
         'client_id':os.getenv('CLIENT_ID'),
         'client_secret':os.getenv('CLIENT_SECRET')
     }
-    response = requests.post(os.getenv('REQUEST_URL'), data=body)
+    response = requests.post(os.getenv('REQUEST_TOKEN_URL'), data=body)
     return response.json()
 
 
