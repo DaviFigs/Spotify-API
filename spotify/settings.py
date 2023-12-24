@@ -30,18 +30,15 @@ def get_token():
     return response
 
 
-def get_user_information(code):
-    header ={
-        'Authorization':f'Basic {main_string_base64}',
-        'Content-type':'application/x-www-form-urlencoded'
-    } 
-    form={
+def callbacks(code):
+    body = {
         'code':code,
-        'redirect_uri': os.getenv('CALLBACK_URL'),
-        'grant_type' :'authorization_code'
+        'grant_type':'authorization_code',
+        'redirect_uri':os.getenv('CALLBACK_URL'),
+        'client_id':os.getenv('CLIENT_ID'),
+        'client_secret':os.getenv('CLIENT_SECRET')
     }
-    response = requests.request('POST', url=REQUEST_URL, headers= header, data = form)
-    return response
-
+    response = requests.post(os.getenv('REQUEST_URL'), data=body)
+    return response.json()
 
 
