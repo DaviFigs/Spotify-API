@@ -6,11 +6,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def callback(request):
-    response = sett.callbacks(code=request.GET.get('code'))
-    request.session['auth'] = True
-    request.session['access_token'] = response['access_token']
-    return redirect('main_page')
-
+    try:
+        if request.session['auth'] == True:
+            return redirect('main_page')
+        else:
+            response = sett.callbacks(code=request.GET.get('code'))
+            request.session['auth'] = True
+            request.session['access_token'] = response['access_token']
+            return redirect('main_page')
+    except:
+        return redirect('login')
+    
+    
 def main_page(request):
     try:
         if request.session['auth'] == True:
