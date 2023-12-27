@@ -3,6 +3,9 @@ from spotify import settings as sett
 import requests
 import os
 from dotenv import load_dotenv
+from django.contrib import messages
+from django.contrib.messages import constants
+
 load_dotenv()
 
 def callback(request):#create session params and return him to main_page
@@ -17,6 +20,7 @@ def callback(request):#create session params and return him to main_page
             request.session['access_token'] = response['access_token']
             return redirect('main_page')
     except KeyError:
+        messages.add_message(request, constants.ERROR, 'You are trying to make what ?')
         return redirect('login')
     
 
