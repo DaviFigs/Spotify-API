@@ -38,14 +38,7 @@ def main_page(request):
     
 
 def api_user_calls(request):
-    #at this view I will make the calls to Spotify APi
+    #We will take the option data, and send to api functions, to make our reqeusts
 
     return render(request,'main.html') 
 
-
-    access_token = request.session['access_token']
-    headers = {
-        'Authorization':'Bearer '+access_token
-    }
-    response = requests.get(os.getenv('BASE_URL')+'me', headers=headers)
-    

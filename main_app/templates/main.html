@@ -17,8 +17,8 @@
 <div>
     <div class="row margin">
         <div class="col-md-1"></div>
-        <div class="col-md-6">
-            <a href="{% url "clearsession" %}" class="btn btn-danger">EXIT YOUR ACCOUNT</a>
+
+        <div class="col-md-5">
             <h1>WELCOME TO SPOTIFY STATS</h1>
         </div>
 
@@ -42,14 +42,13 @@
                             <option value="3">All time</option>
                         </select>
                     </div>
-                    <input class="btn btn-info" type="submit">
+                    <input class="btn btn-success" type="submit">
                 </div>
             </form>
         </div>
-
-             
-
-
+        <div class="col-md-1">
+            <br> 
+            <a href="{% url "clearsession" %}" class="btn btn-danger">EXIT YOUR ACCOUNT</a></div>
         <div class="col-md-1"></div>
     </div>
 </div>
