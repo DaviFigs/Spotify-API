@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 from django.contrib import messages
 from django.contrib.messages import constants
+from spotify import api_calls as api
 
 load_dotenv()
 
@@ -38,7 +39,11 @@ def main_page(request):
     
 
 def api_user_calls(request):
-    #We will take the option data, and send to api functions, to make our reqeusts
+    action = request.GET.get('action')
+    time = request.GET.get('time')
+    access_token = request.session['access_token']
+    response = api.call_api(access_token,action,time)
+        
 
     return render(request,'main.html') 
 
