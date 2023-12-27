@@ -20,20 +20,27 @@ def callback(request):#create session params and return him to main_page
             request.session['access_token'] = response['access_token']
             return redirect('main_page')
     except KeyError:
-        messages.add_message(request, constants.ERROR, 'You are trying to make what ?')
+        messages.add_message(request, constants.ERROR, 'You have to login before access our application!')
         return redirect('login')
     
 
 def main_page(request):
     try:
         if request.session['auth'] == True:
-            access_token = request.session['access_token']
-            headers = {
-                'Authorization':'Bearer '+access_token
-            }
-            response = requests.get(os.getenv('BASE_URL')+'me', headers=headers)
+            messages.add_message(request, constants.SUCCESS, 'Hi, welcome to your spotify stats, your sesion will expire inside 1 hour, enjoy our application!!')
             return render(request, 'main.html')
         else:
+            messages.add_message(request, constants.ERROR, 'You have to login before access our application!')
             return redirect('login')
     except KeyError:
+        messages.add_message(request, constants.ERROR, 'You have to login before access our application!')
         return redirect('login')
+    
+
+def api_user_calls(request):
+    access_token = request.session['access_token']
+    headers = {
+        'Authorization':'Bearer '+access_token
+    }
+    response = requests.get(os.getenv('BASE_URL')+'me', headers=headers)
+    return 

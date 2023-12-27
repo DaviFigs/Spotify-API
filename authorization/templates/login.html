@@ -4,6 +4,15 @@
 {% block 'title'%}Login{% endblock %}
 
 {% block 'body'%}
+
+{% if messages %}
+{% for i in messages%}
+    <div class="alert {{i.tags}}" role="alert">
+        {{i}}
+    </div>
+{% endfor %}
+{% endif %}
+
     <h1> Login</h1>
     
     <a href={% url "auth" %}><button class="btn btn-info">Authorize</button></a>

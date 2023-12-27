@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.margin{
+    margin:10px;
+}
+
+div{
+    border: solid 1px black;
+}
