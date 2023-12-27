@@ -38,6 +38,8 @@ def main_page(request):
     
 
 def api_user_calls(request):
+    #at this view I will make the calls to Spotify APi
+
     access_token = request.session['access_token']
     headers = {
         'Authorization':'Bearer '+access_token
