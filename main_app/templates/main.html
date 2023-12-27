@@ -16,16 +16,41 @@
 <br>
 <div>
     <div class="row margin">
-        <div class="col-md-4">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <a href="{% url "clearsession" %}" class="btn btn-danger">EXIT YOUR ACCOUNT</a>
             <h1>WELCOME TO SPOTIFY STATS</h1>
         </div>
-        <div class="col-md-4">
 
-        </div>
+
         <div class="col-md-4">
-            <a href="{% url "clearsession" %}" class="btn btn-danger">EXIT YOUR ACCOUNT</a>
+            <form action="{% url "api_calls"%}" method="GET"> {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <select name="func_option" class="form-select form-select-lg mb-3">
+                            <option disabled selected>What do you wanna know?</option>
+                            <option value="1">Top Artists</option>
+                            <option value="2">Top Tracks</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <select name="time_option" class="form-select form-select-lg mb-3">
+                            <option disabled selected>How long ?</option>
+                            <option value="1">Last Month</option>
+                            <option value="2">Last 6 Months</option>
+                            <option value="3">All time</option>
+                        </select>
+                    </div>
+                    <input class="btn btn-info" type="submit">
+                </div>
+            </form>
         </div>
 
+             
+
+
+        <div class="col-md-1"></div>
     </div>
 </div>
 {%endblock%}
