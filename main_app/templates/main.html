@@ -26,7 +26,7 @@
         <div class="col-md-4">
             <form action="{% url "api_calls"%}" method="GET"> {% csrf_token %}
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <select name="action" class="form-select form-select-lg mb-3">
                             <option disabled selected>What do you wanna know?</option>
                             <option value="1">Top Artists</option>
@@ -34,12 +34,19 @@
                         </select>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <select name="time" class="form-select form-select-lg mb-3">
                             <option disabled selected>How long ?</option>
                             <option value="1">Last Month</option>
                             <option value="2">Last 6 Months</option>
                             <option value="3">All time</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select name="limit" class="form-select form-select-lg mb-3">
+                            <option disabled selected>Limit</option>
+                            <option value="1">Top 10</option>
+                            <option value="2">Top 50</option>
                         </select>
                     </div>
                     <input class="btn btn-success" type="submit">

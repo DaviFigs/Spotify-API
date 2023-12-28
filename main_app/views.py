@@ -15,7 +15,6 @@ def callback(request):#create session params and return him to main_page
             return redirect('main_page')
         else:
             response = sett.callbacks(code=request.GET.get('code'))
-
             request.session.set_expiry(3600)
             request.session['auth'] = True
             request.session['access_token'] = response['access_token']
@@ -42,8 +41,9 @@ def api_user_calls(request):
     action = request.GET.get('action')
     time = request.GET.get('time')
     access_token = request.session['access_token']
-    response = api.call_api(access_token,action,time)
-        
+    limit = request.GET.get('limit')
+    response = api.call_api(access_token,action,time,limit)
+    print(response)
 
     return render(request,'main.html') 
 
