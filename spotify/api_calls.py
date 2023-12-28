@@ -12,8 +12,8 @@ def call_api( access_token, action, time,limit):
         'Authorization':'Bearer '+access_token
     }
     request_url = filtering(action, time, limit)
-    #response = requests.get(url=request_url, headers=headers)
-    response = requests.get(url= 'https://api.spotify.com/v1/me', headers=headers)
+    response = requests.get(url=request_url, headers=headers)
+    #response = requests.get(url= 'https://api.spotify.com/v1/me', headers=headers)
     #WE ARE GETITNG PROBLEMS IN AUHTENTIACATION, OUR LEVEL OF AUTHENTICATION IS NOT ALLOWED TO GET USER DATA
     return response.json()
     
