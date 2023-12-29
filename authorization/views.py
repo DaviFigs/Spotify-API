@@ -17,6 +17,7 @@ def render_login(request):#When user access the website
     except KeyError:
         request.session['auth'] = False
         return render(request, 'login.html')
+    
 
 def authorize(request):#This is an api call, this url return user to callback function
     url = auths.authorize()

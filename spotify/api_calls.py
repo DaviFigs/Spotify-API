@@ -9,7 +9,7 @@ BASE_TOP_URL = os.getenv('BASE_TOP_URL')
 
 def call_api( access_token, action, time,limit):
     headers = {
-        'Authorization':'Bearer '+access_token
+        'Authorization':'Bearer '+ access_token
     }
     request_url = filtering(action, time, limit)
     response = requests.get(url=request_url, headers=headers)

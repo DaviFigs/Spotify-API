@@ -10,9 +10,6 @@ def authorize(): #this function will authorize our app to take informations abou
         +'&redirect_uri='\
         +os.getenv('CALLBACK_URL')\
         +'&show_dialog=true'\
-        +'&escope=user-read-private user-read-email user-library-read user-top-read'
+        +'&scope=user-library-read user-top-read'\
+        +'&state=wbfgiwgyretwe'
     return auth_url
-
-
-#INFO: This type of authorization is wrong, we have to fix it
-

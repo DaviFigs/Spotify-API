@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
 from spotify import settings as sett
-import requests
-import os
 from dotenv import load_dotenv
 from django.contrib import messages
 from django.contrib.messages import constants
@@ -9,20 +7,23 @@ from spotify import api_calls as api
 
 load_dotenv()
 
-def callback(request):#create session params and return him to main_page
+def callback(request):
     try:
         if request.session['auth'] == True:
             return redirect('main_page')
         else:
-            response = sett.callbacks(code=request.GET.get('code'))
+            code = request.GET.get('code')
+            response = sett.callbacks(code)
             request.session.set_expiry(3600)
             request.session['auth'] = True
             request.session['access_token'] = response['access_token']
+
             return redirect('main_page')
     except KeyError:
         messages.add_message(request, constants.ERROR, 'You have to login before access our application!')
         return redirect('login')
     
+
 
 def main_page(request):
     try:
