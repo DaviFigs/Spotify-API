@@ -31,6 +31,8 @@ def filter_limit(limit):
     if limit == '1':
         return '10'
     elif limit == '2':
+        return '25'
+    elif limit == '3':
         return '50'
 
 def filter_action(action):

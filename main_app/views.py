@@ -44,7 +44,9 @@ def api_user_calls(request):
     access_token = request.session['access_token']
     limit = request.GET.get('limit')
     response = api.call_api(access_token,action,time,limit)
-    print(response)
+    context = {
+        'itens':response
+    }
 
-    return render(request,'main.html') 
+    return render(request,'main.html',context=context) 
 

@@ -15,11 +15,12 @@ def authorize(): #this function will authorize our app to take informations abou
         +'&state='+create_random_string()
     return auth_url
 
+
 def create_random_string():
     string = ''
     number = random.sample(range(1000), k=16)
     for i in number:
         string+=str(i)
-    string = 'ILoveGiovana_'+string+'_MyEternalLove'
+    string = 'ILoveGiovana_'+string+'_MyEternalLove'#Yes,this is for my girl, devs always made it
     return string
     
