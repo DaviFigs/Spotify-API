@@ -13,3 +13,6 @@ def authorize(): #this function will authorize our app to take informations abou
         +'&escope=user-read-private user-read-email user-library-read user-top-read'
     return auth_url
 
+
+#INFO: This type of authorization is wrong, we have to fix it
+
