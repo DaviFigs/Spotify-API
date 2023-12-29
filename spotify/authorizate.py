@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+import random
 load_dotenv()
 
 
@@ -11,5 +12,14 @@ def authorize(): #this function will authorize our app to take informations abou
         +os.getenv('CALLBACK_URL')\
         +'&show_dialog=true'\
         +'&scope=user-library-read user-top-read'\
-        +'&state=wbfgiwgyretwe'
+        +'&state='+create_random_string()
     return auth_url
+
+def create_random_string():
+    string = ''
+    number = random.sample(range(1000), k=16)
+    for i in number:
+        string+=str(i)
+    string = 'ILoveGiovana_'+string+'_MyEternalLove'
+    return string
+    
