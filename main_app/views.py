@@ -7,6 +7,9 @@ from spotify import api_calls as api
 
 load_dotenv()
 
+def redirect_home(request):
+    return redirect('login') 
+
 def callback(request):
     try:
         if request.session['auth'] == True:
@@ -39,14 +42,25 @@ def main_page(request):
     
 
 def api_user_calls(request):
-    action = request.GET.get('action')
-    time = request.GET.get('time')
-    access_token = request.session['access_token']
-    limit = request.GET.get('limit')
-    response = api.call_api(access_token,action,time,limit)
-    context = {
-        'itens':response
-    }
+    try:
+        if request.session['auth'] == False:
+            messages.add_message(request, constants.WARNING, 'You have to login before access our application!')
+            return redirect('login')
+        else:
+            try:
+                action = request.GET.get('action')
+                time = request.GET.get('time')
+                access_token = request.session['access_token']
+                limit = request.GET.get('limit')
+                response = api.call_api(access_token,action,time,limit)
+                context = {
+                    'itens':response
+                }
+                return render(request,'main.html',context=context) 
+            except:
+                messages.add_message(request, constants.WARNING, 'Sorry, something is wrong, is not your fault')
+                return redirect('main_page')
+    except Exception as e:
+        messages.add_message(request, constants.WARNING, f'Error: {e}')
 
-    return render(request,'main.html',context=context) 
 
