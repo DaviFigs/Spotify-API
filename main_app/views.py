@@ -62,5 +62,3 @@ def api_user_calls(request):
                 return redirect('main_page')
     except Exception as e:
         messages.add_message(request, constants.WARNING, f'Error: {e}')
-
-
