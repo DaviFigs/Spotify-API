@@ -22,8 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authorization',
-    'main_app'
-    
+    'main_app',
 ]
 
 MIDDLEWARE = [
@@ -115,10 +114,6 @@ MESSAGE_TAGS = {
     constants.INFO:'alert-info',
     constants.WARNING:'alert-warning'
 }
-
-
-
-
 
 #sessions
 
