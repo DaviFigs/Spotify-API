@@ -53,10 +53,13 @@ def api_user_calls(request):
                 access_token = request.session['access_token']
                 limit = request.GET.get('limit')
                 response = api.call_api(access_token,action,time,limit)
-                context = {
-                    'itens':response
-                }
-                return render(request,'main.html',context=context) 
+
+                if action == '1':
+                    pass #If user choice is artists
+                elif action == '2':
+                    pass #If user choice is Tracks
+
+                return render(request,'main.html') 
             except:
                 messages.add_message(request, constants.WARNING, 'Sorry, something is wrong, is not your fault')
                 return redirect('main_page')
