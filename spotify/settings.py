@@ -28,6 +28,4 @@ def callbacks(code):
     response = requests.post(os.getenv('REQUEST_TOKEN_URL'), headers=header, data=body)
     return response.json()
 
-#Vamos testar agora nas views
-
 
