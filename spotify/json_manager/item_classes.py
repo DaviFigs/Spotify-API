@@ -2,13 +2,13 @@
 
 class ItensList:
     def __init__(self) -> None:
-        self.currently_list = []
+        self.current_list = []
     
     def add_item_on_list(self, item):#receive one item, artist or song item
-        self.currently_list.append(item)
+        self.current_list.append(item)
 
     def return_list(self):
-        return self.currently_list
+        return self.current_list
 
 class SongItem:
     pass
