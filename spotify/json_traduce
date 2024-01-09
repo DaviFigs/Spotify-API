@@ -20,3 +20,53 @@
 		
 #This is item 1
 	
+
+
+#songs
+
+
+{'items': 
+[{'album': 
+{'album_type': 'ALBUM', 'artists': 
+[{'external_urls': 
+{'spotify': 'https://open.spotify.com/artist/2QsynagSdAqZj3U9HgDzjD'}
+, 'href': 'https://api.spotify.com/v1/artists/2QsynagSdAqZj3U9HgDzjD'
+, 'id': '2QsynagSdAqZj3U9HgDzjD'
+, 'name': 'Bob Marley & The Wailers'
+, 'type': 'artist'
+, 'uri': 'spotify:artist:2QsynagSdAqZj3U9HgDzjD'}]
+, 'available_markets': ['AD', 'AE', 'AR', 'AT', 'AU', 'BE', 'BG', 'BH', 'BO', 'BR', 'CA', 'CH', 'CL', 'CO', 'CR', 'CY', 'CZ', 'DE', 'DK', 'DZ', 'EC', 'EE', 'EG', 'ES', 'FI', 'FR', 'GB', 'GR', 'GT', 'HK', 'HN', 'HU', 'ID', 'IE', 'IL', 'IN', 'IS', 'IT', 'JO', 'JP', 'KW', 'LB', 'LI', 'LT', 'LU', 'LV', 'MA', 'MC', 'MT', 'MX', 'MY', 'NI', 'NL', 'NO', 'NZ', 'OM', 'PA', 'PE', 'PH', 'PL', 'PS', 'PT', 'PY', 'QA', 'RO', 'SA', 'SE', 'SG', 'SK', 'SV', 'TH', 'TN', 'TR', 'TW', 'US', 'UY', 'VN', 'ZA'], 'external_urls': {'spotify': 'https://open.spotify.com/album/39kLAVdcgW7jbMcTEaY2qy'}
+, 'href': 'https://api.spotify.com/v1/albums/39kLAVdcgW7jbMcTEaY2qy'
+, 'id': '39kLAVdcgW7jbMcTEaY2qy'
+, 'images': [{'height': 640, 'url': 'https://i.scdn.co/image/ab67616d0000b27387ef6dae7545173089c68f34', 'width': 640}, {'height': 300, 'url': 'https://i.scdn.co/image/ab67616d00001e0287ef6dae7545173089c68f34', 'width': 300}, {'height': 64, 'url': 'https://i.scdn.co/image/ab67616d0000485187ef6dae7545173089c68f34', 'width': 64}], 'name': 'Catch A Fire', 'release_date': '1973-04-13', 'release_date_precision': 'day', 'total_tracks': 20, 'type': 'album', 'uri': 'spotify:album:39kLAVdcgW7jbMcTEaY2qy'}
+
+
+, 'artists': 
+[{'external_urls': {'spotify': 'https://open.spotify.com/artist/2QsynagSdAqZj3U9HgDzjD'}
+, 'href': 'https://api.spotify.com/v1/artists/2QsynagSdAqZj3U9HgDzjD'
+, 'id': '2QsynagSdAqZj3U9HgDzjD'
+, 'name': 'Bob Marley & The Wailers'
+, 'type': 'artist'
+, 'uri': 'spotify:artist:2QsynagSdAqZj3U9HgDzjD'}]
+, 'available_markets': ['AD', 'AE', 'AR', 'AT', 'AU', 'BE', 'BG', 'BH', 'BO', 'BR', 'CA', 'CH', 'CL', 'CO', 'CR', 'CY', 'CZ', 'DE', 'DK', 'DZ', 'EC', 'EE', 'EG', 'ES', 'FI', 'FR', 'GB', 'GR', 'GT', 'HK', 'HN', 'HU', 'ID', 'IE', 'IL', 'IN', 'IS', 'IT', 'JO', 'JP', 'KW', 'LB', 'LI', 'LT', 'LU', 'LV', 'MA', 'MC', 'MT', 'MX', 'MY', 'NI', 'NL', 'NO', 'NZ', 'OM', 'PA', 'PE', 'PH', 'PL', 'PS', 'PT', 'PY', 'QA', 'RO', 'SA', 'SE', 'SG', 'SK', 'SV', 'TH', 'TN', 'TR', 'TW', 'US', 'UY', 'VN', 'ZA']
+
+, 'disc_number': 1
+, 'duration_ms': 253960
+, 'explicit': False
+, 'external_ids': {'isrc': 'GBAPA0100004'}
+, 'external_urls': {'spotify': 'https://open.spotify.com/track/5M77yXWuKPqaUzdxn4cVnV'}
+, 'href': 'https://api.spotify.com/v1/tracks/5M77yXWuKPqaUzdxn4cVnV'
+, 'id': '5M77yXWuKPqaUzdxn4cVnV'
+, 'is_local': False
+, 'name': 'Concrete Jungle'
+, 'popularity': 60
+, 'preview_url': 'https://p.scdn.co/mp3-preview/19544b44fdebbad5e3300e6da3417a9cf20e3f8d?cid=f0cd9a2febaf4bd792d39b86430a442d'
+, 'track_number': 1, 'type': 'track', 'uri': 'spotify:track:5M77yXWuKPqaUzdxn4cVnV'}]
+, 'total': 50
+
+
+
+
+
+, 'limit': 1
+, 'offset': 0, 'href': 'https://api.spotify.com/v1/me/top/tracks?limit=1&offset=0&time_range=short_term', 'next': 'https://api.spotify.com/v1/me/top/tracks?limit=1&offset=1&time_range=short_term', 'previous': None}

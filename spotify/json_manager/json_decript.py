@@ -1,0 +1,1 @@
+#Here I'll make functions wich receive json and organize them

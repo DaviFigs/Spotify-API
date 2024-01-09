@@ -15,7 +15,7 @@ class SongItem:
 
 
 class ArtistItem:
-    pass
+    def __init__(self,name, artist_uri,popularity) -> None:
 
 
 '''

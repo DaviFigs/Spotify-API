@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from django.contrib import messages
 from django.contrib.messages import constants
 from spotify import api_calls as api
+from django.http import HttpResponse
 
 load_dotenv()
 
@@ -53,6 +54,7 @@ def api_user_calls(request):
                 access_token = request.session['access_token']
                 limit = request.GET.get('limit')
                 response = api.call_api(access_token,action,time,limit)
+                return HttpResponse(f'{response}')
 
                 if action == '1':
                     pass #If user choice is artists
