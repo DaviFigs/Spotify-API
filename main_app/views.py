@@ -56,6 +56,7 @@ def api_user_calls(request):
                 access_token = request.session['access_token']
                 limit = request.GET.get('limit')
                 response = api.call_api(access_token,action,time,limit)
+                print(response)
 
                 if action == '1':
                     artist_list = jsp.get_artists_info(response)
