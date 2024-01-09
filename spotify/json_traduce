@@ -26,10 +26,8 @@
 
 
 {'items': 
-[{'album': 
-{'album_type': 'ALBUM', 'artists': 
-[{'external_urls': 
-{'spotify': 'https://open.spotify.com/artist/2QsynagSdAqZj3U9HgDzjD'}
+[{'album': {'album_type': 'ALBUM'
+, 'artists': [{'external_urls': {'spotify': 'https://open.spotify.com/artist/2QsynagSdAqZj3U9HgDzjD'}
 , 'href': 'https://api.spotify.com/v1/artists/2QsynagSdAqZj3U9HgDzjD'
 , 'id': '2QsynagSdAqZj3U9HgDzjD'
 , 'name': 'Bob Marley & The Wailers'

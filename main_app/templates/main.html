@@ -61,10 +61,18 @@
     <div class="row margin">
         <div class="col-md-1"></div>
             <div class="col-md-10">
+
                 {% if 'artists' %}
                     {%for artist in artists%}
                         {{artist}}<br>
                     {% endfor%}
+                {% endif%}
+
+                {% if 'tracks'%}
+                    {% for track in tracks%}
+                        {{track.name}}<br>
+                    {% endfor %}
+
                 {% endif %}
             </div>
         <div class="col-md-1"></div>

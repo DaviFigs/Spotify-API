@@ -3,10 +3,20 @@ from .item_list import SongItem, ArtistItem
 
 def get_tracks_info(json_response):
     response_items = []
-    songs_list = json_response['items']
-    
-    for i in json_response['itens']:
-        pass
+    tracks_list = json_response['items']
+
+    for i in tracks_list:
+        album = i['album']['name']
+        artist = i['artists'][0]['name']
+        duration = i['duration_ms']
+        name = i['name']
+        link = i['external_urls']['spotify']
+        
+        track = SongItem(link, name, album, artist, duration)
+        response_items.append(track)
+        
+    return response_items
+        
 
 def get_artists_info(json_response):
     response_items = []

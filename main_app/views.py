@@ -32,7 +32,7 @@ def callback(request):
 def main_page(request):
     try:
         if request.session['auth'] == True:
-            messages.add_message(request, constants.SUCCESS, 'Hi, welcome to your spotify stats, your sesion will expire inside 1 hour, enjoy our application!!')
+            #messages.add_message(request, constants.SUCCESS, 'Hi, welcome to your spotify stats, your sesion will expire inside 1 hour, enjoy our application!!')
             return render(request, 'main.html')
         else:
             messages.add_message(request, constants.ERROR, 'You have to login before access our application!')
@@ -63,7 +63,10 @@ def api_user_calls(request):
                         'artists':artist_list,
                     }
                 elif action == '2':
-                    pass #If user choice is Tracks
+                    tracks_list = jsp.get_tracks_info(response)
+                    context ={
+                        'tracks':tracks_list,
+                    }
 
                 return render(request,'main.html', context=context) 
             except:
