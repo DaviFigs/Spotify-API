@@ -28,7 +28,7 @@ def filtering(action, time,limit):
 #This defs below will filter the forms witch the user sent for us
 def filter_limit(limit):
     if limit == '1':
-        return '1'
+        return '10'
     elif limit == '2':
         return '25'
     elif limit == '3':
