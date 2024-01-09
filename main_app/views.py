@@ -42,6 +42,8 @@ def main_page(request):
         return redirect('login')
     
 
+from spotify.json_manager import json_decript as jsp
+
 def api_user_calls(request):
     try:
         if request.session['auth'] == False:
@@ -54,14 +56,16 @@ def api_user_calls(request):
                 access_token = request.session['access_token']
                 limit = request.GET.get('limit')
                 response = api.call_api(access_token,action,time,limit)
-                return HttpResponse(f'{response}')
 
                 if action == '1':
-                    pass #If user choice is artists
+                    artist_list = jsp.get_artists_info(response)
+                    context = {
+                        'artists':artist_list,
+                    }
                 elif action == '2':
                     pass #If user choice is Tracks
 
-                return render(request,'main.html') 
+                return render(request,'main.html', context=context) 
             except:
                 messages.add_message(request, constants.WARNING, 'Sorry, something is wrong, is not your fault')
                 return redirect('main_page')

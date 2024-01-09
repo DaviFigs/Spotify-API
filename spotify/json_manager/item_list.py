@@ -7,15 +7,16 @@ class Itens:
     def add_item_on_list(self, item):#receive one item, artist or song item
         self.current_list.append(item)
 
-    def return_list(self):
-        return self.current_list
 
 class SongItem:
     pass
 
 
 class ArtistItem:
-    def __init__(self,name, artist_uri,popularity) -> None:
+    def __init__(self, link, name, popularity) -> None:
+        self.link = link
+        self.name = name
+        self.popularity = popularity
 
 
 '''

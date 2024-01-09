@@ -56,11 +56,15 @@
             <a href="{% url "clearsession" %}" class="btn btn-danger">EXIT YOUR ACCOUNT</a></div>
         <div class="col-md-1"></div>
     </div>
+
+
     <div class="row margin">
         <div class="col-md-1"></div>
             <div class="col-md-10">
-                {% if 'itens' %}
-                    {{itens}}
+                {% if 'artists' %}
+                    {%for artist in artists%}
+                        {{artist}}<br>
+                    {% endfor%}
                 {% endif %}
             </div>
         <div class="col-md-1"></div>
