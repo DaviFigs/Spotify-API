@@ -64,13 +64,13 @@
 
                 {% if 'artists' %}
                     {%for artist in artists%}
-                        {{artist}}<br>
+                        <h5>{{artist.name}} </h5><br>
                     {% endfor%}
                 {% endif%}
 
                 {% if 'tracks'%}
                     {% for track in tracks%}
-                        {{track.name}}<br>
+                        <h5>{{track.name}}<h5><br>
                     {% endfor %}
 
                 {% endif %}
