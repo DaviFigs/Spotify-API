@@ -11,13 +11,13 @@ load_dotenv()
 def redirect_home(request):
     return redirect('login') 
 
-def callback(request):
+def callback(request):#This url receive a json data
     try:
         if request.session['auth'] == True:
             return redirect('main_page')
         else:
             code = request.GET.get('code')
-            response = sett.callbacks(code)
+            response = sett.callbacks(code)#This function will give us the access token
             request.session.set_expiry(3600)
             request.session['auth'] = True
             request.session['access_token'] = response['access_token']
@@ -56,7 +56,6 @@ def api_user_calls(request):
                 access_token = request.session['access_token']
                 limit = request.GET.get('limit')
                 response = api.call_api(access_token,action,time,limit)
-                print(response)
 
                 if action == '1':
                     artist_list = jsp.get_artists_info(response)

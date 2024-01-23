@@ -12,6 +12,7 @@ def get_tracks_info(json_response):
     tracks_list = json_response['items']
 
     for i in tracks_list:
+        image = i['album']['images'][0]['url']
         album = i['album']['name']
         artist = i['artists'][0]['name']
         duration = (i['duration_ms']/1000)
@@ -19,7 +20,7 @@ def get_tracks_info(json_response):
         link = i['external_urls']['spotify']
         duration = convert(duration)
         
-        track = SongItem(link, name, album, artist, duration)
+        track = SongItem(link, name, album, artist, duration, image)
         response_items.append(track)
         
     return response_items
@@ -30,10 +31,11 @@ def get_artists_info(json_response):
     artist_list = json_response['items']
 
     for i in artist_list:
+        image = i['images'][0]['url']
         link = i['external_urls']['spotify']
         name = i['name']
         popularity = i['popularity']
-        artist = ArtistItem(link,name, popularity)
+        artist = ArtistItem(link,name, popularity, image)
         response_items.append(artist)
 
     return response_items
