@@ -73,4 +73,5 @@ def api_user_calls(request):
                 messages.add_message(request, constants.WARNING, 'Sorry, something is wrong, is not your fault')
                 return redirect('main_page')
     except Exception as e:
-        messages.add_message(request, constants.WARNING, f'Error: {e}')
+        messages.add_message(request, constants.WARNING, f'Error: {e}, your session expired!')
+        return redirect('login')
