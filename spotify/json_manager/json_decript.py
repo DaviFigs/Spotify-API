@@ -2,10 +2,12 @@
 from .item_list import SongItem, ArtistItem
 import time 
   
+
 def convert(seconds): 
     if seconds < 3600:
         return time.strftime("%M:%S", time.gmtime(seconds))
     return time.strftime("%H:%M:%S", time.gmtime(seconds))
+
 
 def get_tracks_info(json_response):
     cont=1

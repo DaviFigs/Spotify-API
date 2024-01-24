@@ -48,3 +48,25 @@ def filter_time(time):
     elif time == '3':
         return 'long_term'
 
+def create_message(action,time,limit):
+    action = filter_action(action)
+    time = filter_time(time)
+    limit = filter_limit(limit)
+
+    if action == 'artists':
+        if time == 'short_term':
+            message = f'These are your top {limit} artists from last month'
+        if time =='medium_term':
+            message = f'These are your top {limit} artists from last 6 months'
+        if time =='long_term':
+            message = f'These are your top {limit} artists of all time'
+        return message
+
+    else:  
+        if time == 'short_term':
+            message = f'These are your top {limit} tracks from last month'
+        if time =='medium_term':
+            message = f'These are your top {limit} tracks from last 6 months'
+        if time =='long_term':
+            message = f'These are your top {limit} tracks of all time'
+        return message  

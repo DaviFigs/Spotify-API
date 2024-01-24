@@ -12,10 +12,9 @@
         </div>
     {% endfor %}
 {% endif %}
-
-<br>
 <div>
-    <div class="row margin">
+    <br>
+    <div class="row margin green-back">
         <div class="col-md-1"></div>
 
         <div class="col-md-5">
@@ -25,7 +24,7 @@
 
         <div class="col-md-4">
             <form action="{% url "api_calls"%}" method="GET"> {% csrf_token %}
-                <div class="row">
+                <div class="row margin">
                     <div class="col-md-4">
                         <select name="action" class="form-select form-select-lg mb-3">
                             <option selected value="1">Top Artists</option>
@@ -47,7 +46,7 @@
                             <option value="3">Top 50</option>
                         </select>
                     </div>
-                    <input class="btn btn-success" type="submit">
+                    <input class="btn btn-success" type="submit" value="CHECK">
                 </div>
             </form>
         </div>
@@ -55,6 +54,11 @@
             <br> 
             <a href="{% url "clearsession" %}" class="btn btn-danger">EXIT YOUR ACCOUNT</a></div>
         <div class="col-md-1"></div>
+    </div>
+    <div class="row margin">
+        <div class="col-md-12 text-center">
+            <h1 class="upper">{{message}}</h1>
+        </div>
     </div>
 
 
@@ -82,7 +86,7 @@
                 {% if 'tracks'%}
                     {% for track in tracks%}
                     <div class="row">
-                        <div class="col-md-1"><h1>{{track.number}}</h1></div>
+                        <div class="col-md-1 text-center"><h1>{{track.number}}</h1></div>
                         <div class="col-md-1">
                             <img width="100%" height="100%" src="{{track.image}}"></img>
                         </div>

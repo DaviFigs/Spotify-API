@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from django.contrib import messages
 from django.contrib.messages import constants
 from spotify import api_calls as api
-from django.http import HttpResponse
 
 load_dotenv()
 
@@ -56,16 +55,19 @@ def api_user_calls(request):
                 access_token = request.session['access_token']
                 limit = request.GET.get('limit')
                 response = api.call_api(access_token,action,time,limit)
+                message = api.create_message(action, time, limit)
 
                 if action == '1':
                     artist_list = jsp.get_artists_info(response)
                     context = {
                         'artists':artist_list,
+                        'message':message
                     }
                 elif action == '2':
                     tracks_list = jsp.get_tracks_info(response)
                     context ={
                         'tracks':tracks_list,
+                        'message':message
                     }
 
                 return render(request,'main.html', context=context) 
