@@ -65,7 +65,7 @@
                 {% if 'artists' %}
                     {%for artist in artists%}
                         <div class="row">
-                            <div class="col-md-1 text-center"><h1>{{artist.number}}</h1></div>
+                            <div class="col-md-1 text-center"><h1>{{artist.number}}°</h1></div>
                             <div class="col-md-1">
                                 <img width="100%" height="100%" src="{{artist.image}}"></img>
                             </div>
@@ -82,7 +82,7 @@
                 {% if 'tracks'%}
                     {% for track in tracks%}
                     <div class="row">
-                        <div class="col-md-1 text-center"><h1>{{track.number}}</h1></div>
+                        <div class="col-md-1 text-center"><h1>{{track.number}}°</h1></div>
                         <div class="col-md-1">
                             <img width="100%" height="100%" src="{{track.image}}"></img>
                         </div>
