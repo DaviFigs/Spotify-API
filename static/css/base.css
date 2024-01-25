@@ -4,9 +4,7 @@
     padding: 0;
     background-color:#121212;
 }
-div{
-    border: solid 1px red;
-}
+
 body{
     overflow-x: hidden;
 }

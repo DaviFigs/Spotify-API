@@ -14,12 +14,10 @@
     {% endif %}
 </header>
 <div class="container-fluid">
-    <div class="row margin green-back">
+    <div class="row margin green-back flexbox ">
         <div class="col-md-6">
             <h1 class="text-center">WELCOME TO SPOTIFY STATS</h1>
         </div>
-        
-        
         <div class="col-md-4">
             <form action="{% url "api_calls"%}" method="GET"> {% csrf_token %}
                 <div class="row margin">
@@ -40,7 +38,7 @@
                     <div class="col-md-4">
                         <select name="limit" class="form-select form-select-lg mb-3">
                             <option selected value="1">Top 10</option>
-                            <option value="2">Top 25</option>]
+                            <option value="2">Top 25</option>
                             <option value="3">Top 50</option>
                         </select>
                     </div>
@@ -48,17 +46,16 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-1">
-            <br> 
-            <a href="{% url "clearsession" %}" class="btn btn-danger">EXIT YOUR ACCOUNT</a></div>
-        <div class="col-md-1"></div>
+        <div class="col-md-2 flexbox"> 
+            <a href="{% url "clearsession" %}" class="btn btn-dark text-center">EXIT YOUR ACCOUNT</a>
+        </div>
     </div>
     <div class="row margin">
         <div class="col-md-12 text-center">
             <h1 class="upper">{{message}}</h1>
         </div>
     </div>
-
+    <br>
 
     <div class="row margin">
         <div class="col-md-1"></div>
