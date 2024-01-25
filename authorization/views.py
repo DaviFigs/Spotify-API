@@ -28,7 +28,7 @@ def clearsession(request):
     try:
         if request.session['auth'] == True:
             request.session.flush()
-            messages.add_message(request, constants.INFO, 'Thak you for use our application, hope you were enjoying!')
+            messages.add_message(request, constants.INFO, 'Thak you for use our application, hope you enjoyed!')
             return redirect('login')
         else:
             messages.add_message(request,constants.ERROR, 'You have to login before access our application!')

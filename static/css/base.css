@@ -7,12 +7,15 @@
 
 body{
     overflow-x: hidden;
+    background-color:#121212;
 }
 
 .margin{
     padding:10px;
 }
-
+.padding-top{
+    padding-top: 15%;
+}
 .time{
     font-size:medium;}
 
@@ -33,3 +36,17 @@ body{
     align-items: center; /* Alinhamento vertical */
 
 }
+
+.align-vertical-center{
+    display: flex;
+    flex-direction:column;
+    justify-content: center; /* Alinhamento horizontal */
+    align-items: center; /* Alinhamento vertical */
+
+}
+
+@media (max-width: 600px) {
+    .text-center-special{
+        text-align: center;
+    }
+  }

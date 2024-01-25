@@ -4,17 +4,27 @@
 {% block 'title'%}Login{% endblock %}
 
 {% block 'body'%}
+<header class="header">
+    {% if messages %}
+    {% for i in messages%}
+        <div class="alert {{i.tags}}" role="alert">
+            {{i}}
+        </div>
+    {% endfor %}
+    {% endif %}
+</header>
 
-{% if messages %}
-{% for i in messages%}
-    <div class="alert {{i.tags}}" role="alert">
-        {{i}}
+<div class="container-fluid padding-top">
+    <div class="row ">
+        <div class="col-md-12 flexbox">
+            <h1>Welcome to Spotify Stat</h1>
+        </div>
+
     </div>
-{% endfor %}
-{% endif %}
-
-    <h1> Login</h1>
-    
-    <a href={% url "auth" %}><button class="btn btn-info">Authorize</button></a>
-    
+    <div class="row">
+        <div class="col-md-12 flexbox">
+            <a href={% url "auth" %}><button class="btn btn-success">Log In with my Spotify account</button></a>
+        </div>
+    </div>
+</div>  
 {%endblock%}

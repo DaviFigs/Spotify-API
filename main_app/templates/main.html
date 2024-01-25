@@ -5,13 +5,15 @@
 
 {% block 'body'%}
 <header class="header">
-    {% if messages %}
-        {% for i in messages%}
-            <div class="alert {{i.tags}}" role="alert">
-                {{i}}
-            </div>
-        {% endfor %}
-    {% endif %}
+    <div>
+        {% if messages %}
+            {% for i in messages%}
+                <div class="alert {{i.tags}}" role="alert">
+                    {{i}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
 </header>
 <div class="container-fluid">
     <div class="row margin green-back flexbox ">
@@ -55,8 +57,7 @@
             <h1 class="upper">{{message}}</h1>
         </div>
     </div>
-    <br>
-
+    <hr>
     <div class="row margin">
         <div class="col-md-1"></div>
             <div class="col-md-10">
@@ -68,7 +69,7 @@
                             <div class="col-md-1">
                                 <img width="100%" height="100%" src="{{artist.image}}"></img>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 text-center">
                                 <br>
                                 <h4>{{artist.name}}</h4>
                                 <h5>{{artist.popularity}}</h5>
@@ -85,7 +86,7 @@
                         <div class="col-md-1">
                             <img width="100%" height="100%" src="{{track.image}}"></img>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-10 text-center-special">
                             <h4>{{track.name}} <spam class="time"> {{track.duration}}</spam></h4>
                             <h5>{{track.artist}}</h5>
                             <h6>{{track.album}}</h6>
