@@ -16,6 +16,7 @@ body{
 .padding-top{
     padding-top: 15%;
 }
+
 .time{
     font-size:medium;}
 
@@ -48,5 +49,9 @@ body{
 @media (max-width: 600px) {
     .text-center-special{
         text-align: center;
+    }
+
+    .mini-padd-top{
+        padding-top: 2.5%;
     }
   }
