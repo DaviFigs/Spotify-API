@@ -1,14 +1,12 @@
 *{
+    color: rgb(246, 242, 242);
     margin: 0;
     padding: 0;
+    background-color:#121212;
 }
-.gray-back{
-    background-color: rgba(232, 228, 228, 0.842);
+div{
+    border: solid 1px red;
 }
-.green-back{
-    background-color: #1ED760;
-}
-
 body{
     overflow-x: hidden;
 }
@@ -25,4 +23,15 @@ body{
 }
 .text-center{
     text-align: center;
+}
+.logo-size{
+    width: 100%;
+    height: 100%;
+}
+
+.flexbox{
+    display: flex;
+    justify-content: center; /* Alinhamento horizontal */
+    align-items: center; /* Alinhamento vertical */
+
 }

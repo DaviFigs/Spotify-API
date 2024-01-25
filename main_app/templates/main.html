@@ -4,24 +4,22 @@
 {% block 'title'%}App{% endblock %}
 
 {% block 'body'%}
-
-{% if messages %}
-    {% for i in messages%}
-        <div class="alert {{i.tags}}" role="alert">
-            {{i}}
-        </div>
-    {% endfor %}
-{% endif %}
-<div>
-    <br>
+<header class="header">
+    {% if messages %}
+        {% for i in messages%}
+            <div class="alert {{i.tags}}" role="alert">
+                {{i}}
+            </div>
+        {% endfor %}
+    {% endif %}
+</header>
+<div class="container-fluid">
     <div class="row margin green-back">
-        <div class="col-md-1"></div>
-
-        <div class="col-md-5">
-            <h1>WELCOME TO SPOTIFY STATS</h1>
+        <div class="col-md-6">
+            <h1 class="text-center">WELCOME TO SPOTIFY STATS</h1>
         </div>
-
-
+        
+        
         <div class="col-md-4">
             <form action="{% url "api_calls"%}" method="GET"> {% csrf_token %}
                 <div class="row margin">
@@ -103,5 +101,6 @@
             </div>
         <div class="col-md-1"></div>
     </div>
-</div>
+
+<div>
 {%endblock%}
