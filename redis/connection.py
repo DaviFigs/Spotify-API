@@ -1,7 +1,4 @@
 import redis
+cache_redis = redis.Redis(host='localhost', port=6379, db=0)
 
-r = redis.Redis(host='localhost', port=6379, db=0)
-
-r.set('Test', 'test')
-
-print(r.get('Test'))
+cache_redis.set('access_token', 'none' ,3600)
