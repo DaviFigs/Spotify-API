@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from django.contrib import messages
 from django.contrib.messages import constants
 from spotify import api_calls as api
+from redis_config.connection import cache_redis
 
 load_dotenv()
 
@@ -20,6 +21,9 @@ def callback(request):#This url receive a json data
             request.session.set_expiry(3600)
             request.session['auth'] = True
             request.session['access_token'] = response['access_token']
+            token = request.session['access_token']
+            cache_redis.set('access_token', token)
+            print(cache_redis.get('access_token'))
 
             return redirect('main_page')
     except KeyError:
