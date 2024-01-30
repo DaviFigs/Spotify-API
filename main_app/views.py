@@ -22,7 +22,6 @@ def callback(request):#This url receive a json data
             request.session['auth'] = True
             request.session['access_token'] = response['access_token']
             token = request.session['access_token']
-            cache_redis.set('access_token', token)
             print(cache_redis.get('access_token'))
 
             return redirect('main_page')
