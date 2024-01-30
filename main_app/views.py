@@ -34,7 +34,8 @@ def callback(request):#This url receive a json data
 def main_page(request):
     try:
         if request.session['auth'] == True:
-            #messages.add_message(request, constants.SUCCESS, 'Hi, welcome to your spotify stats, your sesion will expire inside 1 hour, enjoy our application!!')
+            #HERE WE GONNA MAKE ALL API CALL
+            #INSERT ONE API CALL LOOP HERE
             return render(request, 'main.html')
         else:
             messages.add_message(request, constants.ERROR, 'You have to login before access our application!')
@@ -57,8 +58,10 @@ def api_user_calls(request):
                 time = request.GET.get('time')
                 access_token = request.session['access_token']
                 limit = request.GET.get('limit')
-                response = api.call_api(access_token,action,time,limit)
-                message = api.create_message(action, time, limit)
+
+                response = api.call_api(access_token,action,time,limit)#SPOTIFY API CALL
+
+                message = api.create_message(action, time, limit)#create one especific message for user
 
                 if action == '1':
                     artist_list = jsp.get_artists_info(response)

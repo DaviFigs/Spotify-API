@@ -1,4 +1,5 @@
 import redis
+import json
 R = redis.Redis(host='localhost', port=6379, db=0)
 
 top10_tracks = R.get('top10_tracks')
@@ -9,11 +10,24 @@ test = R.hset('user:123',mapping={
     'email':'nance@hotmail.com'
 })
 
-print(R.hgetall('user:123'))
-R.delete('Test')
-R.delete('accesss_token')
-R.delete('access_token')
-R.delete('user:123')
+all_user_data ={ 
+    'top10_track_lm': [
+        {'name':'NAME', 'artist':'ARTIST', 'album':'ALBUM','duration':'1222'}],
+    
+    'top10_track_l6': [
+        {'name':'NAME', 'artist':'ARTIST', 'album':'ALBUM', 'duration':'2212'},
+    ],
+
+    'top10_track_at': [
+        {'name':'NAME', 'artist':'ARTIST', 'album':'ALBUM', 'duration':'3030'},
+    ],
+}
+all_user_data = json.dumps(all_user_data)
+
+teste2 = R.hset('top_things', 'user_data',all_user_data)
+
+print(R.hgetall('top_things'))
+print(all_user_data)
 
 
 
