@@ -1,12 +1,19 @@
 import redis
-cache_redis = redis.Redis(host='localhost', port=6379, db=0)
+R = redis.Redis(host='localhost', port=6379, db=0)
 
-top10_tracks = cache_redis.get('top10_tracks')
-top10_artists = cache_redis.get('top10_artists')
+top10_tracks = R.get('top10_tracks')
+top10_artists = R.get('top10_artists')
 
-print(top10_tracks)
-print(top10_artists)
+test = R.hset('user:123',mapping={
+    'name':'nance',
+    'email':'nance@hotmail.com'
+})
 
+print(R.hgetall('user:123'))
+R.delete('Test')
+R.delete('accesss_token')
+R.delete('access_token')
+R.delete('user:123')
 
 
 
