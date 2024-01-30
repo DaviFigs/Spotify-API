@@ -4,11 +4,6 @@ import requests
 load_dotenv()
 BASE_TOP_URL = os.getenv('BASE_TOP_URL')
 
-URLS_LIST = [
-    #f'{BASE_TOP_URL}/{action}?offset={offset}&limit={limit}&time_range={time}'
-
-]
-
 
 def call_api( access_token, action, time,limit):
     headers = {
@@ -38,6 +33,7 @@ def filter_limit(limit):
         return '25'
     elif limit == '3':
         return '50'
+
 def filter_action(action):
     if action == '1':
         return 'artists'

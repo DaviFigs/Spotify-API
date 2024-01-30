@@ -1,8 +1,11 @@
 1- Criar lista de todas as chamadas a api possíveis
 2- Fazer um lopping de chamadas para a api
+2.1- Tratar esses dados e os enviar para o dicionário
 3- Receber os dados e colocar dentro de um dict/json
 4- fazer caching dos dados
 5- Utilizar do cache para servir a aplicação
 
-
 ou seja, mudar toda a forma de pensar da aplicação
+
+
+artists
