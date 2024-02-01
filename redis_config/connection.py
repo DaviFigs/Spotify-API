@@ -10,7 +10,7 @@ test = R.hset('user:123',mapping={
     'email':'nance@hotmail.com'
 })
 
-all_user_data ={ 
+'''all_user_data ={ 
     'top10_track_lm': [
         {'name':'NAME', 'artist':'ARTIST', 'album':'ALBUM','duration':'1222'}],
     
@@ -27,7 +27,7 @@ all_user_data = json.dumps(all_user_data)
 teste2 = R.hset('top_things', 'user_data',all_user_data)
 
 print(R.hgetall('top_things'))
-print(all_user_data)
+print(all_user_data)'''
 
 
 
