@@ -20,8 +20,6 @@ def callback(request):#This url receive a json data
             request.session.set_expiry(3600)
             request.session['auth'] = True
             request.session['access_token'] = response['access_token']
-            token = request.session['access_token']
-
             return redirect('main_page')
     except KeyError:
         messages.add_message(request, constants.ERROR, 'You have to login before access our application!')
