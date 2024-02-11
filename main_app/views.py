@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from django.contrib import messages
 from django.contrib.messages import constants
 from spotify import api_calls as api
-from redis_config.connection import R
 
 load_dotenv()
 
@@ -22,7 +21,6 @@ def callback(request):#This url receive a json data
             request.session['auth'] = True
             request.session['access_token'] = response['access_token']
             token = request.session['access_token']
-            print(R.get('access_token'))
 
             return redirect('main_page')
     except KeyError:
@@ -34,8 +32,6 @@ def callback(request):#This url receive a json data
 def main_page(request):
     try:
         if request.session['auth'] == True:
-            #HERE WE GONNA MAKE ALL API CALL
-            #INSERT ONE API CALL LOOP HERE
             return render(request, 'main.html')
         else:
             messages.add_message(request, constants.ERROR, 'You have to login before access our application!')
