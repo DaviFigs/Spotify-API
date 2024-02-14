@@ -19,7 +19,7 @@ def authorize(): #this function will authorize our app to take informations abou
 
 def create_random_string():
     string = ''
-    number = random.sample(range(1000), k=16)
+    number = random.sample(range(1000), k=20)
     for i in number:
         string+=str(i)
     string = 'ILoveGiovana_'+string+'_MyEternalLove'
