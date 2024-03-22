@@ -24,8 +24,6 @@ def filtering(action, time,limit):
     request_url = f'{BASE_TOP_URL}/{action}?offset={offset}&limit={limit}&time_range={time}'
     return request_url
 
-
-#This defs below will filter the forms witch the user sent for us
 def filter_limit(limit):
     if limit == '1':
         return '10'
