@@ -57,7 +57,7 @@ def create_message(action,time,limit):
         if time =='medium_term':
             message = f'These are your top {limit} artists from last 6 months'
         if time =='long_term':
-            message = f'These are your top {limit} artists of all time'
+            message = f'These are your top {limit} all time artists'
         return message
 
     else:  
